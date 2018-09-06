@@ -1,0 +1,24 @@
+language: node_js
+
+node_js:
+  - "9"
+
+sudo: false
+
+cache: yarn
+
+script:
+  - yarn run test:ci 
+
+after_success: 
+  - bash <(curl -s https://codecov.io/bash) -t 6ee85f7b-31f2-47cd-9fdd-9894d3ad992b
+
+before_deploy:
+  - yarn run build
+  - cp ./build/index.html ./build/200.html
+
+deploy:
+  provider: surge
+  project: ./build/
+  domain: react-redux-web-app.surge.sh
+  skip_cleanup: true
