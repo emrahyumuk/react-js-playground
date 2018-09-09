@@ -1,4 +1,4 @@
-# react-redux-web-app
+# React Redux Web App
 
 * ### **install nodejs**
 
@@ -361,4 +361,4 @@ yarn add prop-types
 ```
 
 
-https://www.youtube.com/watch?v=oGOyZMB2-Ko&list=PL-ohrY_IyV4CUNsDxXDkdT-aAVfrTPXll
+Source: https://youtu.be/oGOyZMB2-Ko
