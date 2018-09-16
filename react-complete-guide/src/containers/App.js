@@ -4,14 +4,16 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 import WithClass from '../hoc/WithClass';
 
+export const AuthContext = React.createContext(false);
 class App extends Component {
   state = {
     persons: [
-      { id: 1, name: 'Max', age: '28' },
+      { id: 1, name: 'Max', age: 28 },
       { id: 2, name: 'Manu', age: 29 }
     ],
     otherState: 'other state value',
-    showPersons: false
+    showPersons: false,
+    authenticated: false
   };
 
   deletePersonHandler = personIndex => {
@@ -37,6 +39,10 @@ class App extends Component {
     this.setState({ showPersons: !this.state.showPersons });
   };
 
+  loginHandler = () => {
+    this.setState({ authenticated: true });
+  };
+
   render() {
     let persons = null;
 
@@ -58,9 +64,12 @@ class App extends Component {
           appTitle={this.props.title}
           showPersons={this.state.showPersons}
           persons={this.state.persons}
+          login={this.loginHandler}
           clicked={this.togglePersonsHandler}
         />
-        {persons}
+        <AuthContext.Provider value={this.state.authenticated}>
+          {persons}
+        </AuthContext.Provider>
       </WithClass>
     );
   }
