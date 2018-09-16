@@ -7,7 +7,7 @@ import WithClass from '../hoc/WithClass';
 class App extends Component {
   state = {
     persons: [
-      { id: 1, name: 'Max', age: 28 },
+      { id: 1, name: 'Max', age: '28' },
       { id: 2, name: 'Manu', age: 29 }
     ],
     otherState: 'other state value',
