@@ -41,3 +41,9 @@ add modules and localIdentName to css options part
       },
   ...
 ```
+
+- ## **prop-types**
+
+```sh
+npm install --save prop-types
+```
